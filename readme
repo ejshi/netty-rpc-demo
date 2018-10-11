@@ -1,0 +1,29 @@
+基于netty的RPC框架demo
+1、使用Protostuff作为序列化和反序列化工具 --->>> com.sjz.rpc.serialize.SerializationUtil
+2、LengthFieldBasedFrameDecoder解决TCP粘包/拆包问题
+3、客户端基于jdk动态代理生成代理类 --->>> com.sjz.rpc.client.RpcInvoker
+4、服务端基于反射执行方法调用 --->>> com.sjz.rpc.server.RpcServerHandler.doHandler()
+5、通过实现Future类，实现调用结果的异步获取 --->>> com.sjz.rpc.client.RpcFuture
+
+
+代码结构：
+    rpc-core(工程名)
+        com.sjz.rpc
+               client >>> 客户端相应类
+               model  >>> 自定义的实体类，用于数据传输
+               registry >>> 注册中心实体类
+               serialize >>> 序列化/发序列化相应类
+               server >>> 服务端相应类
+
+    rpc-api(api接口)
+
+    rpc-provider(api接口实现类)
+        test(测试)
+            client ---> 客户端测试类
+            server ---> 服务端测试类
+    
+
+
+
+
+
